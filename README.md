@@ -18,6 +18,7 @@ Livro: Seções 3.1 a 3.14 do livro https://panda.ime.usp.br/panda/static/python
 Sim, acreditamos que tudo que foi proposto foi realizado no projeto em questão.
 
 ## Problemas identificados no projeto
+Conseguimos implementar o código de forma objetiva, o único obstáculo que enfrentamos foi a questão da verificação quando não encontrávamos uma saída no labirinto, precisando retroceder e verificar o passo anterior.
 
 ## Tecnologias utilizadas
 <img height="80" width="auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png">
