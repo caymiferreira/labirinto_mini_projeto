@@ -7,30 +7,34 @@ comeca = (1,0)
 termina = (linhas-2,colunas-1)
 
 def eh_possivel_sair(lab):
-    fila = deque([comeca])
+    pilha = deque([comeca])
     marcado = set()
 
-    while fila:
-        atual = fila.popleft()
+    while pilha:
+        atual = pilha.popleft()
 
         if atual == termina:
             return True
 
-        marcado.add(atual)
-
         linha, coluna = atual
-        proximos = [(linha, coluna-1), (linha-1, coluna), (linha, coluna+1), (linha+1, coluna)]
+        marcado.add(atual)
+        direita = linha, coluna+1
+        abaixo = linha+1, coluna
+        esquerda = linha, coluna-1
+        acima = linha-1, coluna
+
+        proximos = [direita, abaixo, esquerda, acima]
 
         for proximo in proximos:
             proxima_linha, proxima_coluna = proximo
 
             if 0 <= proxima_coluna < len(lab[0]) and 0 <= proxima_linha < len(lab) and lab[proxima_linha][proxima_coluna] == ' ' and proximo not in marcado:
-                fila.append(proximo)
+                pilha.append(proximo)
     return False
 
 def print_lab(lab):
-	for i in lab:
-		print("".join(i))
+    lab_str = '\n'.join([''.join(row) for row in lab])
+    print(lab_str)
 
 if __name__ == '__main__':
 
@@ -53,8 +57,7 @@ if __name__ == '__main__':
 
     resultado_esperado1 = True
 
-    print_lab(labirinto2)
-    resultado1 = eh_possivel_sair(labirinto2)
+    print_lab(labirinto1)
+    resultado1 = eh_possivel_sair(labirinto1)
 
     print(resultado1 == resultado_esperado1)
-    
